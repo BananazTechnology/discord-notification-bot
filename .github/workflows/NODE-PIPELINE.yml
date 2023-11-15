@@ -9,5 +9,3 @@ jobs:
     # This is the main Node pipeline
     uses: BananazTechnology/bananaz-pipelines/.github/workflows/NODE.yaml@main
     secrets: inherit
-    with:
-      token: ${{ secrets.GH_TOKEN }}
