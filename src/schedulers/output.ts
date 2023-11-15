@@ -16,7 +16,7 @@ export class Output {
       this.compileAndSend, 
       undefined, 
       undefined, 
-      "America/New_York", 
+      config.getTimezone(), 
       this
     );
     this.cronJob.start()

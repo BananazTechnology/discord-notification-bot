@@ -3,7 +3,7 @@
 ## Environment Info
 ```
 BOT_DEBUG=true
-TZ="UTC" # Very important as all times are in UTC
+TZ="UTC" # Very important to configure host clock to UTC
 DSCRD_BOT_TK="token"
 CONFIG_FILE="/path/to/config.json"
 ```
@@ -17,7 +17,8 @@ This file should look like:
     {
         "cron": "0 0 * * *",
         "channelId": "01234567890",
-        "message": "Hello World"
+        "message": "Hello World",
+        "timezone": "America/New_York"
     }
 ]
 ```
@@ -28,9 +29,10 @@ In this file you have a outermost array which can contain as many of these, as I
 | cron | This is a typical Cron expression, any errors should be printed on first load |
 | channelId | A channel which is on a server the provided Discord token has access to |
 | message | Any text including supported Discord formatting |
+| timezone | Any IANA Time Zone valid value to set the cron clock |
 ---
 ## Container Runtime
-This section covers two scenerios of running the app, one in Docker and one in Kubernetes.
+This section covers two scenarios of running the app, one in Docker and one in Kubernetes.
 
 ### Docker
 See [docker-compose](docker-compose.yaml)
@@ -49,7 +51,8 @@ data:
       {
         "cron": "0 */2 * * *",
         "channelId": "790751594982801420",
-        "message": "<@176355202687959051> Time to play pokemon"
+        "message": "<@176355202687959051> Time to play pokemon",
+        "timezone": "America/New_York"
       }
     ]
 ```

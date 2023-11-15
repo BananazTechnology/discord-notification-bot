@@ -1,19 +1,21 @@
 export class Config {
   // User attributes. Should always be private as updating information will need to be reflected in the db
-  private cron?: string;
+  private cronRegex?: string;
   private channelId?: string;
   private message?: string;
+  private timezone?: string;
 
   // constructor is private. User object sould be created by one of the get or create commands
-  public constructor (cron?: string, channelId?: string, message?: string) {
-    this.cron = cron;
+  public constructor (cronRegex?: string, channelId?: string, message?: string, timezone?: string) {
+    this.cronRegex = cronRegex;
     this.channelId = channelId;
     this.message = message;
+    this.timezone = timezone;
   }
 
   // Getters
   public getCron () : string {
-    return this.cron ? this.cron : "";
+    return this.cronRegex ? this.cronRegex : "";
   }
 
   public getChannelId () : string {
@@ -24,9 +26,13 @@ export class Config {
     return this.message ? this.message : "";
   }
 
+  public getTimezone () : string {
+    return this.timezone ? this.timezone : "America/New_York";
+  }
+
   // Setters
-  public setCron (cron: string) {
-    this.cron = cron;
+  public setCron (cronRegex: string) {
+    this.cronRegex = cronRegex;
   }
 
   public setChannelId (channelId: string) {
@@ -35,6 +41,10 @@ export class Config {
 
   public setMessage (message: string) {
     this.message = message;
+  }
+
+  public setTimezone (timezone: string) {
+    this.timezone = timezone;
   }
 
 }

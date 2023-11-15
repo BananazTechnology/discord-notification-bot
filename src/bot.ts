@@ -46,6 +46,7 @@ fs.readFile(configFile, 'utf8', (err, data) => {
       config.setCron(element.cron);
       config.setChannelId(element.channelId);
       config.setMessage(element.message);
+      config.setTimezone(element.timezone);
 
       // Log we received the config
       console.log(`Received a config: ${JSON.stringify(config)}`);
