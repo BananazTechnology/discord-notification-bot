@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  discord-notification-bot:
+    image: ghcr.io/bananaztechnology/discord-notification-bot:latest
+    container_name: discord-notification-bot-prod
+    restart: always
+    environment:
+      TZ: "UTC"
+      DSCRD_BOT_TK: "abc.def.ghij"
+      CONFIG_FILE: "/tmp/bot/config.json"
+    volumes:
+      - ./:/tmp/bot
